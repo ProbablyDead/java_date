@@ -26,7 +26,7 @@ public class Person {
 
 
   private String getAge () throws DateTimeException {
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     LocalDate bDate;
     try {
       bDate = LocalDate.parse(BDDate, formatter); 
