@@ -15,4 +15,6 @@ public class GUI extends Application {
     primariStage.setResizable(false);
     primariStage.show();
   } 
+
+  private class Pass {}
 }

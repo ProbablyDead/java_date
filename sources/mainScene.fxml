@@ -14,14 +14,14 @@
             <Font size="14.0" />
          </font>
       </TextField>
-      <DatePicker fx:id="datePicker" layoutX="210.0" layoutY="148.0" />
-      <Button fx:id="button" layoutX="434.0" layoutY="146.0" mnemonicParsing="false" onAction="#getPass" prefHeight="31.0" prefWidth="152.0" text="Enter" />
+      <DatePicker fx:id="datePicker" layoutX="207.0" layoutY="95.0" />
+      <Button fx:id="getPassButton" layoutX="434.0" layoutY="147.0" mnemonicParsing="false" onAction="#getPass" prefHeight="31.0" prefWidth="152.0" text="Get pass" />
       <Text layoutX="21.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FCs:" wrappingWidth="88.92317581176758">
          <font>
             <Font size="21.0" />
          </font>
       </Text>
-      <Text layoutX="210.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of birth:">
+      <Text layoutX="210.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of birth:">
          <font>
             <Font size="21.0" />
          </font>
@@ -36,5 +36,11 @@
             <Font size="14.0" />
          </font>
       </TextField>
+      <Text layoutX="210.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <Button fx:id="selectImageButton" layoutX="210.0" layoutY="209.0" mnemonicParsing="false" onAction="#selectImage" prefHeight="26.0" prefWidth="186.0" text="Select image" />
    </children>
 </AnchorPane>

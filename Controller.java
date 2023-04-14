@@ -1,4 +1,5 @@
 import java.util.ResourceBundle;
+import java.io.File;
 import java.net.URL;
 import java.time.DateTimeException;
 import java.time.LocalDate;
@@ -11,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.stage.FileChooser;
 import javafx.util.StringConverter;
 
 public class Controller implements Initializable {
@@ -28,9 +30,13 @@ public class Controller implements Initializable {
   private DatePicker datePicker;
 
   @FXML
-  private Button button;
+  private Button getPassButton;
+
+  @FXML
+  private Button selectImageButton;
 
   private Person person;
+  private File image; 
 
   @Override
   public void initialize (URL location, ResourceBundle resources) {
@@ -92,6 +98,16 @@ public class Controller implements Initializable {
       createErrorWindow(ex.getMessage());
       return;
     }
+
+  }
+
+  @FXML
+  private void selectImage () {
+    FileChooser fileChooser = new FileChooser();
+    FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("JPEG, GIF files", "*.jpg", "*.gif");
+    fileChooser.getExtensionFilters().add(filter);
+
+    image = fileChooser.showOpenDialog(selectImageButton.getScene().getWindow());
 
   }
   
