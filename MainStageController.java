@@ -15,7 +15,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.FileChooser;
 import javafx.util.StringConverter;
 
-public class Controller implements Initializable {
+public class MainStageController implements Initializable {
   
   @FXML
   private TextField surname;
@@ -32,16 +32,24 @@ public class Controller implements Initializable {
   @FXML
   private Button getPassButton;
 
+  @FXML 
+  private TextField pathToImage;
+
+  @FXML
+  private Button cleatPathButton;
+
   @FXML
   private Button selectImageButton;
 
   private Person person;
-  private File image; 
+  private static File image = null; 
+
+  public static File getImage () {
+    return image;
+  }
 
   @Override
   public void initialize (URL location, ResourceBundle resources) {
-    surname.setFocusTraversable(false);
-    datePicker.setFocusTraversable(false);
     datePicker.setConverter(new StringConverter<LocalDate>() {
       String pattern = "dd.MM.yyyy";
       DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
@@ -89,16 +97,17 @@ public class Controller implements Initializable {
     person = new Person (String.format("%s %s %s %s", 
           surname.getText(), name.getText().trim(), patronymic.getText().trim(), datePicker.getValue()));
 
-    String result;
-
     try {
-      result = person.format();
+      person.format();
     }
     catch (DateTimeException ex) {
       createErrorWindow(ex.getMessage());
       return;
-    }
+    } 
 
+    person.setImage(image);
+    PassController.setPerson(person);
+    GUI.showPass(person);
   }
 
   @FXML
@@ -108,7 +117,14 @@ public class Controller implements Initializable {
     fileChooser.getExtensionFilters().add(filter);
 
     image = fileChooser.showOpenDialog(selectImageButton.getScene().getWindow());
+    
+    pathToImage.setText(image.toString());
+  }
 
+  @FXML
+  private void clearPath () {
+    pathToImage.setText("");
+    image = null;
   }
   
 }
