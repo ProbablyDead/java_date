@@ -17,37 +17,50 @@ import javafx.util.StringConverter;
 
 public class MainStageController implements Initializable {
   
+  /** Текстовое поле фамилии */
   @FXML
   private TextField surname;
 
+  /** Текстовое поле имени */
   @FXML
   private TextField name;
 
+  /** Текстовое поле отчества */
   @FXML
   private TextField patronymic;
 
+  /** Поле выбора даты */
   @FXML
   private DatePicker datePicker;
 
+  /** Кнопка получения разультата */
   @FXML
   private Button getPassButton;
 
+  /** Текстовое поле пути до файла */
   @FXML 
   private TextField pathToImage;
-
+  
+  /** Кнопка очищения пути */
   @FXML
   private Button cleatPathButton;
 
+  /** Кнопка выбора файла */
   @FXML
   private Button selectImageButton;
 
+  /** Поле класса с данными о человеке */
   private Person person;
+
+  /** Поле переменной файла */
   private static File image = null; 
 
+  /** Получить файл */
   public static File getImage () {
     return image;
   }
 
+  /** Метод инициализации окна */
   @Override
   public void initialize (URL location, ResourceBundle resources) {
     datePicker.setConverter(new StringConverter<LocalDate>() {
@@ -75,11 +88,13 @@ public class MainStageController implements Initializable {
     });
   }
 
+  /** Проверить поля на заполненность */
   private boolean checkFileds () {
     return !name.getText().trim().isEmpty() && !surname.getText().trim().isEmpty() 
       && !patronymic.getText().trim().isEmpty() && datePicker.getValue() != null;
   }
 
+  /** Метод создания окна ошибки */
   private void createErrorWindow (String message) {
       Alert error = new Alert(AlertType.ERROR);
       error.setHeaderText("Invalid input");
@@ -87,6 +102,7 @@ public class MainStageController implements Initializable {
       error.showAndWait();
   }
 
+  /** Обработчик нажатия на кнопку результата */
   @FXML
   private void getPass () {
     if (!checkFileds()) {
@@ -110,6 +126,7 @@ public class MainStageController implements Initializable {
     GUI.showPass(person);
   }
 
+  /** Обработчик нажатия на кнопку выбора файла */
   @FXML
   private void selectImage () {
     FileChooser fileChooser = new FileChooser();
@@ -121,6 +138,7 @@ public class MainStageController implements Initializable {
     pathToImage.setText(image.toString());
   }
 
+  /** Обработчик нажатия на кнопку очистки пути */
   @FXML
   private void clearPath () {
     pathToImage.setText("");
