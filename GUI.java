@@ -8,11 +8,11 @@ public class GUI extends Application {
   
   @Override
   public void start (Stage primariStage) throws Exception {
-    Parent root = FXMLLoader.load(getClass().getResource("fxmls/mainScene.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("sources/mainScene.fxml"));
 
     primariStage.setScene(new Scene(root));
     primariStage.setTitle("Fill information about yourself");
     primariStage.setResizable(false);
     primariStage.show();
-  }
+  } 
 }

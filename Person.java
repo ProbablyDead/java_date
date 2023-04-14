@@ -38,14 +38,15 @@ public class Person {
     BDDate = str;
   }
 
-  public String format () {
+  public String format () throws DateTimeException {
     return String.format("%s %s %s", getInitial(), getSex(), getAge());
   }
 
 
-  private String getAge () throws DateTimeException {
+  public String getAge () throws DateTimeException {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     LocalDate bDate;
+
     try {
       bDate = LocalDate.parse(BDDate, formatter); 
     }
@@ -57,12 +58,12 @@ public class Person {
   }
 
 
-  private String getInitial () {
+  public String getInitial () {
     return String.format("%s %s.%s.", surname, name.substring(0, 1), patronymic.substring(0, 1));
   }
 
 
-  private String getSex () {
+  public String getSex () {
     return patronymic.endsWith("ич") || patronymic.endsWith("лы") ? "Муж" : "Жен";
   }
 
