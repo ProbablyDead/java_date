@@ -28,6 +28,7 @@ public class GUI extends Application {
     try {
       Stage stage = new Stage();
       stage.setTitle("Pass");
+      stage.setResizable(false);
       stage.setScene(new Scene(FXMLLoader.load(GUI.class.getResource("sources/pass.fxml"))));
       stage.show();
     }

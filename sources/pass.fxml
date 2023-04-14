@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="327.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PassController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="327.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PassController">
    <children>
       <ImageView fx:id="imageView" fitHeight="214.0" fitWidth="152.0" layoutX="28.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true" />
       <TextField fx:id="initials" editable="false" focusTraversable="false" layoutX="215.0" layoutY="75.0" prefHeight="26.0" prefWidth="236.0" />
