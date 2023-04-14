@@ -11,7 +11,7 @@ public class GUI extends Application {
     Parent root = FXMLLoader.load(getClass().getResource("fxmls/mainScene.fxml"));
 
     primariStage.setScene(new Scene(root));
-    primariStage.setTitle("Fill information about your self");
+    primariStage.setTitle("Fill information about yourself");
     primariStage.setResizable(false);
     primariStage.show();
   }

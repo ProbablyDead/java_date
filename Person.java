@@ -4,10 +4,10 @@ import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
 public class Person {
-  private final String name;
-  private final String surname;
-  private final String patronymic;
-  private final String BDDate;
+  private String name;
+  private String surname;
+  private String patronymic;
+  private String BDDate;
 
 
   Person (String input) {
@@ -20,13 +20,31 @@ public class Person {
 
   }
 
+  Person () {}
+
+  public void setName (String str) {
+    name = str;
+  }
+
+  public void setSurname (String str) {
+    surname = str;
+  }
+
+  public void setPatronymic (String str) {
+    patronymic = str;
+  }
+
+  public void setBDDate (String str) {
+    BDDate = str;
+  }
+
   public String format () {
     return String.format("%s %s %s", getInitial(), getSex(), getAge());
   }
 
 
   private String getAge () throws DateTimeException {
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     LocalDate bDate;
     try {
       bDate = LocalDate.parse(BDDate, formatter); 
